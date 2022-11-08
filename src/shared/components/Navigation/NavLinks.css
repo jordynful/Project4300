@@ -20,16 +20,18 @@
   border: 1px solid transparent;
   color: #292929;
   text-decoration: none;
-  border-color: #4B4744;;
-  padding: 0.5rem;
+  border-color: #292929;
+  padding:5px;
+ 
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+  border-color: white;
+}
 .nav-links a:active,
 .nav-links a.active {
-  background: #f8df00;
-  border-color: #292929;
-  color: #292929;
+  border-color: white;
+  color: white;
 }
 
 .nav-links button {
@@ -37,8 +39,8 @@
   border: 1px solid #292929;
   color: #292929;
   background: transparent;
-  padding: 0.5rem;
   font: inherit;
+  padding:5px;
 }
 
 .nav-links button:focus {
@@ -57,17 +59,20 @@
   }
 
   .nav-links li {
-    margin: 0 0.5rem;
+    margin: 0 1.5rem;
+    
   }
 
   .nav-links a {
-    color: #4B4744;
+    color: #292929;
     text-decoration: none;
+    
   }
 
+
   .nav-links button {
-    border: 1px solid white;
-    color: white;
+    border: 1px solid 292929;
+    color: 292929;
     background: transparent;
   }
   

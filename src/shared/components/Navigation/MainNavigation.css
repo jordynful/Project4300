@@ -16,7 +16,11 @@
   height: 2.5px;
   background: white;
 }
-
+.main-nav-subhead {
+  color: #4B4744;
+  align-self: center;
+  margin-top: 100px;
+}
 .main-navigation__title {
   color: #4B4744;
   align-self: center;
