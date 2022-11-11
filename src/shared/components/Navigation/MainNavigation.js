@@ -16,12 +16,8 @@ const MainNavigation = props => {
         <h1 className="main-navigation__Lumpkin">
           <Link to="/">Lumpkin</Link>
         </h1>
-        <h3 className = "main-nav-subhead">serving coffee, tea, breakfast,</h3>
-       
-        <h3 className ="main-nav-subhead">pastries, sandwiches, soups, salads,</h3>
-       
-       
-        <h3 className ="main-nav-subhead">and other light fare</h3>
+        <h3 className = "main-nav-subhead">serving coffee, tea, breakfast, pastries,</h3>
+        <h3 className ="main-nav-subhead">sandwiches, soups, salads, and other light fare</h3>
         <nav className="main-navigation__header-nav">
           <NavLinks />
         </nav>

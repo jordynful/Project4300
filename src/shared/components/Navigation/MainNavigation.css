@@ -17,37 +17,37 @@
   background: white;
 }
 .main-nav-subhead {
-  color: #4B4744;
+  color: #cbbcbb;
   align-self: center;
   line-height: 30px;
   font-family: "altivo", sans-serif;
   font-variant: small-caps;
   margin-top: -30px;
-  font-size: 20px;
+  font-size: 25px;
 }
 .main-navigation__title {
-  color: #f9c2f2;
+  color: #b4d4ec;
   align-self: center;
   margin-top: 100px;
   font-family: cursive, sans-serif;
-  text-shadow: 2px 2px #ffffff;
+  
   font-size: 75px;
 }
 .main-navigation__Lumpkin {
-  color: #f9c2f2;
+  color: #b4d4ec;
   align-self: center;
   margin-top: -75px;
   font-family: "boucherie-cursive", sans-serif;
-  text-shadow: 2px 2px #ffffff;
+  text-shadow: 3px 3px #cbbcbb;
   font-size: 100px;
 }
 .main-navigation__Lumpkin a {
   text-decoration: none;
-  color: #ffc9ec;
+  color: #b4d4ec;
 }
 .main-navigation__title a {
   text-decoration: none;
-  color: #ffc9ec;
+  color: #b4d4ec;
 }
 
 .main-navigation__header-nav {
