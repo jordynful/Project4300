@@ -19,17 +19,35 @@
 .main-nav-subhead {
   color: #4B4744;
   align-self: center;
-  margin-top: 100px;
+  line-height: 30px;
+  font-family: "altivo", sans-serif;
+  font-variant: small-caps;
+  margin-top: -30px;
+  font-size: 20px;
 }
 .main-navigation__title {
-  color: #4B4744;
+  color: #f9c2f2;
   align-self: center;
   margin-top: 100px;
+  font-family: cursive, sans-serif;
+  text-shadow: 2px 2px #ffffff;
+  font-size: 75px;
 }
-
+.main-navigation__Lumpkin {
+  color: #f9c2f2;
+  align-self: center;
+  margin-top: -75px;
+  font-family: "boucherie-cursive", sans-serif;
+  text-shadow: 2px 2px #ffffff;
+  font-size: 100px;
+}
+.main-navigation__Lumpkin a {
+  text-decoration: none;
+  color: #ffc9ec;
+}
 .main-navigation__title a {
   text-decoration: none;
-  color: #4B4744;
+  color: #ffc9ec;
 }
 
 .main-navigation__header-nav {
