@@ -11,9 +11,17 @@ const MainNavigation = props => {
     <React.Fragment>
       <MainHeader>
         <h1 className="main-navigation__title">
-          <Link to="/">Cafe on Lumpkin</Link>
+          <Link to="/">the café on</Link>
         </h1>
-        <h3 className = "main-nav-subhead">SOmething bout something</h3>
+        <h1 className="main-navigation__Lumpkin">
+          <Link to="/">Lumpkin</Link>
+        </h1>
+        <h3 className = "main-nav-subhead">serving coffee, tea, breakfast,</h3>
+       
+        <h3 className ="main-nav-subhead">pastries, sandwiches, soups, salads,</h3>
+       
+       
+        <h3 className ="main-nav-subhead">and other light fare</h3>
         <nav className="main-navigation__header-nav">
           <NavLinks />
         </nav>
