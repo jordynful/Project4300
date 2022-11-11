@@ -16,18 +16,27 @@
   height: 2.5px;
   background: white;
 }
-
+.main-nav-subhead {
+  color: #4B4744;
+  align-self: center;
+  margin-top: 100px;
+}
 .main-navigation__title {
-  color: white;
+  color: #4B4744;
+  align-self: center;
+  margin-top: 100px;
 }
 
 .main-navigation__title a {
   text-decoration: none;
-  color: white;
+  color: #4B4744;
 }
 
 .main-navigation__header-nav {
   display: none;
+  align-self: center;
+  width:100%;
+  height:150px;
 }
 
 .main-navigation__drawer-nav {
