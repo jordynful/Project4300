@@ -4,9 +4,9 @@ import Card from '../../shared/components/UIElements/Card';
 import Button from '../../shared/components/FormElements/Button';
 import Modal from '../../shared/components/UIElements/Modal';
 import { AuthContext } from '../../shared/context/auth-context';
-import './HorizontalItem.css';
+import './VerticalItem.css';
 
-const HorizontalItem = props => {
+const VerticalItem = props => {
   const auth = useContext(AuthContext);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
@@ -71,6 +71,8 @@ const HorizontalItem = props => {
             <h2>{props.title}</h2>
             <h3>{props.address}</h3>
             <p>{props.description}</p>
+
+
           </div>
           
           {isHovering && (
@@ -93,4 +95,4 @@ const HorizontalItem = props => {
   );
 };
 
-export default HorizontalItem;
+export default VerticalItem;

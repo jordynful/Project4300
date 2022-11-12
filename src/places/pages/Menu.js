@@ -2,6 +2,8 @@ import React from 'react';
 // import { useParams } from 'react-router-dom';
 
 import MenuList from '../components/MenuList';
+import MenuList2 from '../components/MenuList2';
+import MenuList3 from '../components/MenuList3';
 
 const DUMMY_PLACES = [
   {
@@ -42,10 +44,10 @@ const Menu = () => {
             <MenuList items={loadedPlaces} />
         </div>
         <div>
-            <MenuList items={loadedPlaces} />
+        <MenuList2 items={loadedPlaces} />
         </div>
         <div>
-            <MenuList items={loadedPlaces} />
+        <MenuList3 items={loadedPlaces} />
         </div>
     </>
   )
