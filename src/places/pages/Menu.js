@@ -1,7 +1,9 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
-import PlaceList from '../components/PlaceList';
+import MenuList from '../components/MenuList';
+import MenuList2 from '../components/MenuList2';
+import MenuList3 from '../components/MenuList3';
 
 const DUMMY_PLACES = [
   {
@@ -32,10 +34,23 @@ const DUMMY_PLACES = [
   }
 ];
 
-const UserPlaces = () => {
-  const userId = useParams().userId;
-  const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
-  return <PlaceList items={loadedPlaces} />;
+const Menu = () => {
+//   const userId = useParams().userId;
+//   const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
+    const loadedPlaces = DUMMY_PLACES;
+  return (
+    <>
+        <div>
+            <MenuList items={loadedPlaces} />
+        </div>
+        <div>
+        <MenuList2 items={loadedPlaces} />
+        </div>
+        <div>
+        <MenuList3 items={loadedPlaces} />
+        </div>
+    </>
+  )
 };
 
-export default UserPlaces;
+export default Menu;
