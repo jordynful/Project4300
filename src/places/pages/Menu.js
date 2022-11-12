@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
 import MenuList from '../components/MenuList';
 
@@ -18,7 +18,7 @@ const DUMMY_PLACES = [
     creator: 'u1'
   },
   {
-    id: 'p1',
+    id: 'p2',
     title: 'Emp. State Building',
     description: 'One of the most famous sky scrapers in the world!',
     imageUrl:
@@ -28,15 +28,27 @@ const DUMMY_PLACES = [
       lat: 40.7484405,
       lng: -73.9878584
     },
-    creator: 'u1'
+    creator: 'u2'
   }
 ];
 
-const UserPlaces = () => {
-  // const userId = useParams().userId;
-  // const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
-  const loadedPlaces = DUMMY_PLACES;
-  return <MenuList items={loadedPlaces} />;
+const Menu = () => {
+//   const userId = useParams().userId;
+//   const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
+    const loadedPlaces = DUMMY_PLACES;
+  return (
+    <>
+        <div>
+            <MenuList items={loadedPlaces} />
+        </div>
+        <div>
+            <MenuList items={loadedPlaces} />
+        </div>
+        <div>
+            <MenuList items={loadedPlaces} />
+        </div>
+    </>
+  )
 };
 
-export default UserPlaces;
+export default Menu;

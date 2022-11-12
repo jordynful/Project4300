@@ -1,26 +1,34 @@
 .place-item {
-  margin: 1rem 0;
+  margin: 10px;;
+  width:auto;
 }
 
 .place-item__content {
   padding: 0;
+  width:25vw;
+  height:400px;
+  display: flex;
+  flex-direction: column;
 }
 
 .place-item__info {
   padding: 1rem;
   text-align: center;
+  /* overflow:scroll; */
+  /* height:100px; */
 }
 
 .place-item__image {
-  width: 100%;
-  height: 12.5rem;
-  margin-right: 1.5rem;
+  margin-top: 1em;
+  align-self: center;
+  
+  
 }
 
 .place-item__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height:10vw;
+  object-fit:fill;
+  border-radius: 50%;
 }
 
 .place-item__info h2,
@@ -49,12 +57,12 @@
 }
 
 .map-container {
-  height: 15rem;
+  height: auto;
   width: 100%;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .place-item__image {
     height: 20rem;
   } 
-}
+} */
