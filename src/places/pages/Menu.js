@@ -41,10 +41,10 @@ const Menu = () => {
   return (
     <>
         <div>
-        <MenuList2 items={loadedPlaces} />
+        <MenuList items={loadedPlaces} />
         </div>
         <div>
-        <MenuList items={loadedPlaces} />
+        <MenuList2 items={loadedPlaces} />
         </div>
         <div>
         <MenuList3 items={loadedPlaces} />

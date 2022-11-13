@@ -68,7 +68,7 @@ const PictureItem = props => {
             <img src={props.image} alt={props.title} />
           </div>
           <div className="place-item__infop">
-            <h2>{props.title}</h2>
+            <h4>{props.title}</h4>
           </div>
           
           {isHovering && (

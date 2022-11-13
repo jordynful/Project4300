@@ -20,12 +20,17 @@
     padding: 1rem;
     text-align: center;
     overflow:scroll; 
+    padding-top: 0;
     /* height:100px; */
   }
   
+  p {
+     font-size: 0.7em; 
+  }
   .place-item__imageh {
     margin-top: 1em;
     float:left;
+    margin-left: 1em;
     
     
   }
