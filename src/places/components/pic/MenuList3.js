@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Card from '../../shared/components/UIElements/Card';
-import VerticalItem from './VerticalItem';
-import Button from '../../shared/components/FormElements/Button';
-import './MenuList.css';
+import Card from '../../../shared/components/UIElements/Card';
+import PictureItem from './PictureItem';
+import Button from '../../../shared/components/FormElements/Button';
+import '../MenuList.css';
 
-const MenuList = props => {
+const MenuList3 = props => {
   if (props.items.length === 0) {
     return (
       <div className="place-list center">
@@ -20,16 +20,15 @@ const MenuList = props => {
   return (
     <ul className="place-list horizontal">
       {props.items.map(place => (
-        <VerticalItem
+        <PictureItem
           key={place.id}
           id={place.id}
           image={place.imageUrl}
           title={place.title}
-          description={place.description}
         />
       ))}
     </ul>
   );
 };
 
-export default MenuList;
+export default MenuList3;
