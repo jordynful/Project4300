@@ -5,49 +5,77 @@ import MenuList from '../components/vert/MenuList';
 import MenuList2 from '../components/horiz/MenuList2';
 import MenuList3 from '../components/pic/MenuList3';
 
-const DUMMY_PLACES = [
+const BREAKFAST = [
   {
     id: 'p1',
-    title: 'University of Georgia',
-    description: 'From Ideas to Innovation!',
+    title: 'Avocado Toast',
+    description: 'A slice of sourdough bread topped with mashed avocado and an egg.',
     imageUrl:
-      'https://assets.simpleviewinc.com/simpleview/image/fetch/c_limit,q_75,w_1200/https://assets.simpleviewinc.com/simpleview/image/upload/crm/athens/uga-arch-large-web0-cac931605056a36_cac93607-5056-a36a-0af166f0d7ed4058.jpg',
-    address: 'University of Georgia, Athens, GA 30602',
-    location: {
-      lat: 40.7484405,
-      lng: -73.9878584
-    },
-    creator: 'u1'
+      'https://www.thenomadicfitzpatricks.com/wp-content/uploads/2020/06/IMG_8023.jpg',
   },
   {
     id: 'p2',
-    title: 'Emp. State Building',
-    description: 'One of the most famous sky scrapers in the world!',
+    title: 'Breakfast Burrito',
+    description: 'Scrambled eggs, cheddar cheese, avocado, pico de gallo, and your choice of protein.',
     imageUrl:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/NYC_Empire_State_Building.jpg/640px-NYC_Empire_State_Building.jpg',
-    address: '20 W 34th St, New York, NY 10001',
-    location: {
-      lat: 40.7484405,
-      lng: -73.9878584
-    },
-    creator: 'u2'
-  }
+      'https://www.onceuponachef.com/images/2018/03/Breakfast-Burritos.jpg',
+  },
+
 ];
+
+const BAKERY = [
+  {
+    id: 'p3',
+    title: 'Bagels',
+    description: 'Plain, Everything, Sesame, or Cinnamon Toast',
+    imageUrl:
+      'https://hips.hearstapps.com/hmg-prod/images/20191219-seo-bagel-recipe-delish-ehg-8846-1578412004.jpg',
+  },
+  {
+    id: 'muffin',
+    title: 'Assorted Muffins',
+    description: 'Blueberry, Cranberry Orange, Chocolate Chip, Double Chocolate',
+    imageUrl: 'https://cdn11.bigcommerce.com/s-pll9il/images/stencil/1280x1280/products/88/262/2R9A1868__70833.1592021428.jpg?c=2',
+  },
+  {
+    id: 'coffeecake',
+    title: 'Coffee Cake',
+    description: 'Cinnamon-Streusel Coffee Cake',
+    imageUrl: 'https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/recipe_legacy/128-3-large.jpg?itok=6Cv5oS6m'
+  }
+]
+
+const DRINKS = [
+  {
+    id: 'coffee',
+    title: 'Coffee',
+    description: 'Medium or Light Roast',
+    imageUrl: 'https://perfectdailygrind.com/wp-content/uploads/2021/04/Coffee-Bean-Hardness-1.jpg'
+  },
+  {
+    id: 'tea',
+    title: 'Tea',
+    description: 'Earl Grey, Chai, Citrus Green',
+    imageUrl: 'https://post.healthline.com/wp-content/uploads/2022/01/hot-tea-steaming-steeping-732-549-feature-thumb.jpg'
+  }
+]
 
 const Menu = () => {
 //   const userId = useParams().userId;
 //   const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
-    const loadedPlaces = DUMMY_PLACES;
+    const loadedPlaces = BREAKFAST;
+    const idk = BAKERY;
+    const bevs = DRINKS;
   return (
     <>
         <div>
-        <MenuList items={loadedPlaces} />
+        <MenuList items={idk} />
         </div>
         <div>
         <MenuList2 items={loadedPlaces} />
         </div>
         <div>
-        <MenuList3 items={loadedPlaces} />
+        <MenuList3 items={bevs} />
         </div>
     </>
   )
