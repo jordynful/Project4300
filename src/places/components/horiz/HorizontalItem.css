@@ -1,62 +1,67 @@
-.place-item {
+.place-itemh {
     margin: 10px;;
     width:auto;
   }
   
-  .place-item__content {
+  .place-item__contenth {
     padding: 0;
-    width:25vw;
+    width: 40vw;
     height:200px;
     display: flex;
     flex-direction: column;
   }
   
-  .place-item__info {
+  .image-title {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .place-item__infoh {
     padding: 1rem;
     text-align: center;
-    /* overflow:scroll; */
+    overflow:scroll; 
     /* height:100px; */
   }
   
-  .place-item__image {
+  .place-item__imageh {
     margin-top: 1em;
-    align-self: center;
+    float:left;
     
     
   }
   
-  .place-item__image img {
+  .place-item__imageh img {
     height:10vw;
     object-fit:fill;
     border-radius: 50%;
   }
   
-  .place-item__info h2,
-  .place-item__info h3,
-  .place-item__info p {
+  .place-item__infoh h2,
+  .place-item__infoh h3,
+  .place-item__infoh p {
     margin: 0 0 0.5rem 0;
   }
   
-  .place-item__actions {
+  .place-item__actionsh {
     padding: 1rem;
     text-align: center;
     border-top: 1px solid #ccc;
   }
   
-  .place-item__modal-content {
+  .place-item__modal-contenth {
     padding: 0;
   }
   
-  .place-item__modal-actions {
+  .place-item__modal-actionsh {
     text-align: right;
   }
   
-  .place-item__actions button,
-  .place-item__actions a {
+  .place-item__actionsh button,
+  .place-item__actionsh a {
     margin: 0.5rem;
   }
   
-  .map-container {
+  .map-containerh {
     height: auto;
     width: 100%;
   }
