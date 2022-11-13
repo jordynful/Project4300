@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
 
-import Card from '../../shared/components/UIElements/Card';
-import Button from '../../shared/components/FormElements/Button';
-import Modal from '../../shared/components/UIElements/Modal';
-import { AuthContext } from '../../shared/context/auth-context';
+import Card from '../../../shared/components/UIElements/Card';
+import Button from '../../../shared/components/FormElements/Button';
+import Modal from '../../../shared/components/UIElements/Modal';
+import { AuthContext } from '../../../shared/context/auth-context';
 import './VerticalItem.css';
 
 const VerticalItem = props => {
@@ -68,8 +68,7 @@ const VerticalItem = props => {
             <img src={props.image} alt={props.title} />
           </div>
           <div className="place-item__info">
-            <h2>{props.title}</h2>
-            <h3>{props.address}</h3>
+            <h4>{props.title}</h4>
             <p>{props.description}</p>
           </div>
           
