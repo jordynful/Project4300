@@ -21,7 +21,7 @@ const MainNavigation = props => {
         <nav className="main-navigation__header-nav">
           <NavLinks />
         </nav>
-      </MainHeader>
+        </MainHeader>
     </React.Fragment>
   );
 };
