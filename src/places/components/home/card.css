@@ -1,0 +1,24 @@
+.container {
+    height:220px;
+    width:220px;
+    opacity:0.5;
+}
+
+.top {
+    text-align: center;
+}
+
+.title-card {
+    color: #b4d4ec;
+    align-self: center;
+    font-family: cursive, sans-serif;
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.desc-card {
+    text-align: center;
+    margin-top: 0;
+}

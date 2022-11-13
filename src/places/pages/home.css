@@ -1,0 +1,52 @@
+.titlePage {
+    color: #cbbcbb;
+    text-align: center;
+}
+
+.mission {
+    align-self: center;
+    height:200px;
+    width:90%;
+    background-color: white;
+    opacity:0.5;
+    padding:10px;
+    border-radius: 10px;
+    
+    border: 3px solid transparent;
+    border-color: #b4d4ec;
+    margin-bottom: 30px;
+}
+
+.aboutContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-cards {
+    /* align-items: center; */
+    margin-left: 80px;
+  
+}
+
+.about-footer {
+    bottom:0;
+    height:120px;
+    margin-top: 40px;
+    background-color: #b4d4ec;
+    color: #cbbcbb;
+    text-align: center;
+}
+
+.number {
+    margin: 0;
+    padding-top: 0;
+    color: #cbbcbb;
+    text-align: center;
+}
+
+.titlePage2 {
+    color: #cbbcbb;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
