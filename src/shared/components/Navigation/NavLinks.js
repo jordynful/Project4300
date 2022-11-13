@@ -14,7 +14,7 @@ const NavLinks = props => {
       </li>
       {auth.isLoggedIn && (
         <li>
-          <NavLink  className = "navvy"to="/places/new">Order Online</NavLink>
+          <NavLink  className = "navvy"to="/" exact>About Us</NavLink>
         </li>
       )}
       {!auth.isLoggedIn && (
