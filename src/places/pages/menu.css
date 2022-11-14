@@ -1,0 +1,18 @@
+.cards {
+    margin: 0;
+    
+    border-radius: 6px;
+    padding: 1rem;
+    overflow: hidden;
+    color: #f7eae1;
+    font-family: "altivo", sans-serif;
+  }
+  
+h2 {
+    font-family: cursive, sans-serif;
+    font-variant: small-caps;
+    color: #b4d4ec;
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+  }
