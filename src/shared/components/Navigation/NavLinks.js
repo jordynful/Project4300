@@ -12,11 +12,11 @@ const NavLinks = props => {
       <li>
         <NavLink to="/places" exact> Menu</NavLink>
       </li>
-      {auth.isLoggedIn && (
+      
         <li>
           <NavLink  className = "navvy"to="/" exact>About Us</NavLink>
         </li>
-      )}
+      
       {!auth.isLoggedIn && (
         <li>
           <NavLink  className = "navvy"to="/auth">Log In</NavLink>
