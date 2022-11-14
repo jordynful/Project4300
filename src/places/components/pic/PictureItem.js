@@ -33,6 +33,39 @@ const PictureItem = props => {
   const handleMouseOut = () => {
     setIsHovering(false);
   };
+
+  const PopUp = props => {
+    // create state `open` with default as false
+    const [open, setOpen] = useState(false);
+    return (
+      <>
+        {/* click of button toggles `open` value therefore visibility */}
+        <button
+          onClick={() => setOpen(!open)}
+          type="button"
+          className="btn btn-primary"
+          data-toggle="modal"
+          data-target={props.description}
+        >
+         View Details
+        </button>
+        {/* If open is true show your <div /> */}
+        {open && (
+          <div
+            className="modal fade"
+            id={props.id}
+            tabIndex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <p>The Description should go here</p>
+          </div>
+        )}
+      </>
+    );
+  };
+
   return (
     <React.Fragment>
       <Modal
@@ -69,6 +102,7 @@ const PictureItem = props => {
           </div>
           <div className="place-item__infop">
             <h4>{props.title}</h4>
+            <PopUp />
             <p>{props.description}</p>
           </div>
           
