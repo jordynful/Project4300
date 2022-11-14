@@ -69,6 +69,7 @@ const PictureItem = props => {
           </div>
           <div className="place-item__infop">
             <h4>{props.title}</h4>
+            <p>{props.description}</p>
           </div>
           
           {isHovering && (

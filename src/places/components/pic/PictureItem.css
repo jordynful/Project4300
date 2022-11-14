@@ -6,7 +6,7 @@
   .place-item__contentp {
     padding: 0;
     width:22vw;
-    height:200px;
+    height:370px;
     display: flex;
     flex-direction: column;
   }
@@ -15,13 +15,12 @@
     padding: 1rem;
     text-align: center;
     overflow:scroll; 
-    height:100px;
+    
   }
   
   .place-item__imagep {
     margin-top: 1em;
     align-self: center;
-    
     
   }
   

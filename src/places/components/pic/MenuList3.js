@@ -25,6 +25,7 @@ const MenuList3 = props => {
           id={place.id}
           image={place.imageUrl}
           title={place.title}
+          description={place.description}
         />
       ))}
     </ul>
