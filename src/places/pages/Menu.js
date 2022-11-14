@@ -71,15 +71,15 @@ const Menu = () => {
   return (
     <>
         <div className= "cards">
-        <h2>bakery</h2>
+        <h2 className="menu">bakery</h2>
         <MenuList items={idk} />
         </div>
         <div className="cards">
-          <h2>breakfast</h2>
+          <h2 className="menu">breakfast</h2>
         <MenuList2 items={loadedPlaces} />
         </div>
         <div className = "cards">
-          <h2>drinks</h2>
+          <h2 className="menu">drinks</h2>
         <MenuList3 items={bevs} />
         </div>
     </>
