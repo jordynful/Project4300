@@ -6,7 +6,7 @@
   .place-item__contentp {
     padding: 0;
     width:22vw;
-    height:200px;
+    height:400px;
     display: flex;
     flex-direction: column;
   }

@@ -61,18 +61,16 @@ const DRINKS = [
 ]
 
 const Menu = () => {
-//   const userId = useParams().userId;
-//   const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
-    const loadedPlaces = BREAKFAST;
-    const idk = BAKERY;
+    const food = BREAKFAST;
+    const pastries = BAKERY;
     const bevs = DRINKS;
   return (
     <>
         <div>
-        <MenuList items={idk} />
+        <MenuList items={pastries} />
         </div>
         <div>
-        <MenuList2 items={loadedPlaces} />
+        <MenuList2 items={food} />
         </div>
         <div>
         <MenuList3 items={bevs} />
