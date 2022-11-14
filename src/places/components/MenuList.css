@@ -4,6 +4,10 @@
   padding: 0;
   width: 90%;
   flex-direction: row;
+  
+}
+.title {
+  font-size: 30px;
 }
 
 ul {
@@ -11,6 +15,7 @@ ul {
   padding: 10px;
   align-items: center;
   justify-content: space-evenly;
+  
   
 }
 
