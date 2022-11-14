@@ -3,10 +3,11 @@ import {
   BrowserRouter as Router,
   Route,
   Redirect,
-  Switch
+  Switch,
+ 
 } from 'react-router-dom';
 
-import Users from './user/pages/Users';
+import Home from './places/pages/Home';
 import NewPlace from './places/pages/NewPlace';
 import Menu from './places/pages/Menu';
 import UpdatePlace from './places/pages/UpdatePlace';
@@ -31,7 +32,7 @@ const App = () => {
     routes = (
       <Switch>
         <Route path="/" exact>
-          <Users />
+          <Home />
         </Route>
         <Route path="/places" exact>
           <Menu />
@@ -49,7 +50,7 @@ const App = () => {
     routes = (
       <Switch>
         <Route path="/" exact>
-          <Users />
+          <Home />
         </Route>
         <Route path="/places" exact>
           <Menu />

@@ -1,6 +1,6 @@
 import React from 'react';
 // import { useParams } from 'react-router-dom';
-
+import './menu.css';
 import MenuList from '../components/vert/MenuList';
 import MenuList2 from '../components/horiz/MenuList2';
 import MenuList3 from '../components/pic/MenuList3';
@@ -63,18 +63,23 @@ const DRINKS = [
 const Menu = () => {
 //   const userId = useParams().userId;
 //   const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
+ 
     const loadedPlaces = BREAKFAST;
+
     const idk = BAKERY;
     const bevs = DRINKS;
   return (
     <>
-        <div>
+        <div className= "cards">
+        <h2 className="menu">bakery</h2>
         <MenuList items={idk} />
         </div>
-        <div>
+        <div className="cards">
+          <h2 className="menu">breakfast</h2>
         <MenuList2 items={loadedPlaces} />
         </div>
-        <div>
+        <div className = "cards">
+          <h2 className="menu">drinks</h2>
         <MenuList3 items={bevs} />
         </div>
     </>

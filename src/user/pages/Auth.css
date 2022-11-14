@@ -8,8 +8,19 @@
   max-width: 25rem;
   margin: 7rem auto;
   text-align: center;
+  color: #f7eae1;
 }
 
 .authentication form {
   margin-bottom: 1rem;
+}
+
+.login {
+  font-family: "altivo", sans-serif;
+    font-variant: small-caps;
+    color: #f7eae1;
+    font-size: 50px; 
+    text-align: center;
+    margin: 0;
+    text-shadow: 3px 3px #b4d4ec;
 }
