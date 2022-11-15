@@ -9,7 +9,7 @@ import './PictureItem.css';
 const PictureItem = props => {
   const auth = useContext(AuthContext);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
-
+  const [showDetail, setShowDetail] = useState(false);
 
  const showDeleteWarningHandler = () => {
    setShowConfirmModal(true);
@@ -23,7 +23,12 @@ const PictureItem = props => {
     setShowConfirmModal(false);
     console.log('DELETING...');
   };
-
+  const showDetailView = () => {
+    setShowDetail(true);
+  }
+  const cancelDetailView = () => {
+    setShowDetail(false);
+  }
   const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseOver = () => {
@@ -62,6 +67,16 @@ const PictureItem = props => {
           can't be undone thereafter.
         </p>
       </Modal>
+      <Modal
+      show = {showDetail}
+      onCancel = {cancelDetailView}
+      header = {props.title}
+      footer = {
+        <Button inverse onClick={cancelDetailView}>
+        CANCEL
+      </Button>
+      }
+      ></Modal>
       <li className="place-itemp" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
         <Card className="place-item__contentp">
           <div className="place-item__imagep">
@@ -70,8 +85,8 @@ const PictureItem = props => {
           <div className="place-item__infop">
             <h4>{props.title}</h4>
           </div>
-          
-          {isHovering && (
+          <div>
+         
             <div className="place-item__actionsp">
              {auth.isLoggedIn && (
                 <Button to={`/places/${props.id}`}>EDIT</Button>
@@ -83,8 +98,12 @@ const PictureItem = props => {
                 </Button>
                )
                }
+                <Button danger onClick={showDetailView}>
+                 detail
+                </Button>
                </div>
-            )}
+     
+            </div>
         </Card>
       </li>
     </React.Fragment>

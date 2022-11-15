@@ -72,10 +72,10 @@ const VerticalItem = props => {
             <p>{props.description}</p>
           </div>
           
-          {isHovering && (
+         
             <div className="place-item__actions">
              {auth.isLoggedIn && (
-                <Button to={`/places/${props.id}`}>EDIT</Button>
+                <Button to={`/places/vert/${props.id}`}>EDIT</Button>
                 )}
 
               {auth.isLoggedIn && (
@@ -85,7 +85,7 @@ const VerticalItem = props => {
                )
                }
                </div>
-            )}
+         
         </Card>
       </li>
     </React.Fragment>
