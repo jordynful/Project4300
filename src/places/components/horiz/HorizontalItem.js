@@ -112,6 +112,7 @@ const HorizontalItem = props => {
       children = {
         <div>
        <h3>Nutrition Facts</h3>
+       <p> {props.facts} </p>
        </div>
       }
       footer = {

@@ -12,6 +12,7 @@ const BREAKFAST = [
     description: 'A slice of sourdough bread topped with mashed avocado and an egg.',
     imageUrl:
       'https://www.thenomadicfitzpatricks.com/wp-content/uploads/2020/06/IMG_8023.jpg',
+    facts: 'Total Fat: 8g, Saturated Fat: 1g, Trans Fat: 0g, Cholesterol: 0mg,Sodium: 160g, Total Carbohydrate: 37g, Dietary Fiber: 4g, Total Sugars: 12g, Protein: 3g, Vitamin D: 2mcg, Calcium: 260mg, Iron: 8mg, Potassium: 240mg',
   },
   {
     id: 'p2',
@@ -19,6 +20,7 @@ const BREAKFAST = [
     description: 'Scrambled eggs, cheddar cheese, avocado, pico de gallo, and your choice of protein.',
     imageUrl:
       'https://www.onceuponachef.com/images/2018/03/Breakfast-Burritos.jpg',
+      facts: 'Total Fat: 8g, Saturated Fat: 1g, Trans Fat: 0g, Cholesterol: 0mg,Sodium: 160g, Total Carbohydrate: 37g, Dietary Fiber: 4g, Total Sugars: 12g, Protein: 3g, Vitamin D: 2mcg, Calcium: 260mg, Iron: 8mg, Potassium: 240mg',
   },
 
 ];
@@ -30,18 +32,21 @@ const BAKERY = [
     description: 'Plain, Everything, Sesame, or Cinnamon Toast',
     imageUrl:
       'https://hips.hearstapps.com/hmg-prod/images/20191219-seo-bagel-recipe-delish-ehg-8846-1578412004.jpg',
+      facts: 'Total Fat: 8g, Saturated Fat: 1g, Trans Fat: 0g, Cholesterol: 0mg,Sodium: 160g, Total Carbohydrate: 37g, Dietary Fiber: 4g, Total Sugars: 12g, Protein: 3g, Vitamin D: 2mcg, Calcium: 260mg, Iron: 8mg, Potassium: 240mg',
   },
   {
     id: 'muffin',
     title: 'Assorted Muffins',
     description: 'Blueberry, Cranberry Orange, Chocolate Chip, Double Chocolate',
     imageUrl: 'https://cdn11.bigcommerce.com/s-pll9il/images/stencil/1280x1280/products/88/262/2R9A1868__70833.1592021428.jpg?c=2',
+    facts: 'Total Fat: 8g, Saturated Fat: 1g, Trans Fat: 0g, Cholesterol: 0mg,Sodium: 160g, Total Carbohydrate: 37g, Dietary Fiber: 4g, Total Sugars: 12g, Protein: 3g, Vitamin D: 2mcg, Calcium: 260mg, Iron: 8mg, Potassium: 240mg',
   },
   {
     id: 'coffeecake',
     title: 'Coffee Cake',
     description: 'Cinnamon-Streusel Coffee Cake',
-    imageUrl: 'https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/recipe_legacy/128-3-large.jpg?itok=6Cv5oS6m'
+    imageUrl: 'https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/recipe_legacy/128-3-large.jpg?itok=6Cv5oS6m',
+    facts: 'Total Fat: 8g, Saturated Fat: 1g, Trans Fat: 0g, Cholesterol: 0mg,Sodium: 160g, Total Carbohydrate: 37g, Dietary Fiber: 4g, Total Sugars: 12g, Protein: 3g, Vitamin D: 2mcg, Calcium: 260mg, Iron: 8mg, Potassium: 240mg',
   }
 ]
 
@@ -50,13 +55,15 @@ const DRINKS = [
     id: 'coffee',
     title: 'Coffee',
     description: 'Medium or Light Roast',
-    imageUrl: 'https://perfectdailygrind.com/wp-content/uploads/2021/04/Coffee-Bean-Hardness-1.jpg'
+    imageUrl: 'https://perfectdailygrind.com/wp-content/uploads/2021/04/Coffee-Bean-Hardness-1.jpg',
+    facts: 'Total Fat: 8g, Saturated Fat: 1g, Trans Fat: 0g, Cholesterol: 0mg,Sodium: 160g, Total Carbohydrate: 37g, Dietary Fiber: 4g, Total Sugars: 12g, Protein: 3g, Vitamin D: 2mcg, Calcium: 260mg, Iron: 8mg, Potassium: 240mg',
   },
   {
     id: 'tea',
     title: 'Tea',
     description: 'Earl Grey, Chai, Citrus Green',
-    imageUrl: 'https://post.healthline.com/wp-content/uploads/2022/01/hot-tea-steaming-steeping-732-549-feature-thumb.jpg'
+    imageUrl: 'https://post.healthline.com/wp-content/uploads/2022/01/hot-tea-steaming-steeping-732-549-feature-thumb.jpg',
+    facts: 'Total Fat: 8g, Saturated Fat: 1g, Trans Fat: 0g, Cholesterol: 0mg,Sodium: 160g, Total Carbohydrate: 37g, Dietary Fiber: 4g, Total Sugars: 12g, Protein: 3g, Vitamin D: 2mcg, Calcium: 260mg, Iron: 8mg, Potassium: 240mg',
   }
 ]
 
