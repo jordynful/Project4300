@@ -16,7 +16,7 @@ import MainNavigation from './shared/components/Navigation/MainNavigation';
 import { AuthContext } from './shared/context/auth-context';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const login = useCallback(() => {
     setIsLoggedIn(true);
   }, []);
@@ -39,7 +39,7 @@ const App = () => {
         <Route path="/places/new" exact>
           <NewPlace />
         </Route>
-        <Route path="/places/:placeId">
+        <Route path="/places/vert/:placeId">
           <UpdatePlace />
         </Route>
         <Redirect to="/" />

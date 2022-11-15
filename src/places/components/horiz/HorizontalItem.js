@@ -31,6 +31,7 @@ const HorizontalItem = props => {
   };
 
   const handleMouseOut = () => {
+  
     setIsHovering(false);
   };
 
@@ -67,7 +68,7 @@ const HorizontalItem = props => {
   };
 
   return (
-    <React.Fragment>
+    <React.Fragment >
       <Modal
         header={props.address}
         contentClass="place-item__modal-contenth"
@@ -95,7 +96,7 @@ const HorizontalItem = props => {
           can't be undone thereafter.
         </p>
       </Modal>
-      <li className="place-itemh" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+      <li className="place-itemh" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} >
         <Card className="place-item__contenth">
           <div className = "image-titleh">
           <div className="place-item__imageh">
@@ -107,7 +108,8 @@ const HorizontalItem = props => {
             <p>{props.description}</p>
           </div>
           </div>
-          {isHovering && (
+          <div>
+        
             <div className="place-item__actionsh">
              {auth.isLoggedIn && (
                 <Button to={`/places/${props.id}`}>EDIT</Button>
@@ -120,7 +122,8 @@ const HorizontalItem = props => {
                )
                }
                </div>
-            )}
+      
+            </div>
         </Card>
       </li>
     </React.Fragment>
