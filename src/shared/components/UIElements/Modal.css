@@ -7,12 +7,13 @@
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 8px;
+  height:90vh;
 }
 
 .modal__header {
   width: 100%;
   padding: 1rem 0.5rem;
-  background: #2a006e;
+  background: #b4d4ec;
   color: white;
 }
 
@@ -22,10 +23,12 @@
 
 .modal__content {
   padding: 1rem 0.5rem;
+  
 }
 
 .modal__footer {
   padding: 1rem 0.5rem;
+  bottom:0;
 }
 
 @media (min-width: 768px) {
@@ -55,4 +58,8 @@
   transform: translateY(-10rem);
   opacity: 0;
   transition: all 200ms;
+}
+
+.form {
+  height: 600px;
 }

@@ -58,4 +58,14 @@
     height: auto;
     width: 100%;
   }
-  
+  .modal {
+    height:490px;
+  }
+
+  .modal-footer {
+    bottom:0;
+  }
+
+  .modal-contents {
+    height:330px;
+  }
