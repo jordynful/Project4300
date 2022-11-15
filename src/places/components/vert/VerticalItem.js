@@ -9,8 +9,14 @@ import './VerticalItem.css';
 const VerticalItem = props => {
   const auth = useContext(AuthContext);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [showDetail, setShowDetail] = useState(false);
 
-
+  const showDetailView = () => {
+    setShowDetail(true);
+  }
+  const cancelDetailView = () => {
+    setShowDetail(false);
+  }
  const showDeleteWarningHandler = () => {
    setShowConfirmModal(true);
  };
@@ -95,6 +101,24 @@ const VerticalItem = props => {
           can't be undone thereafter.
         </p>
       </Modal>
+      <Modal
+      show = {showDetail}
+      onCancel = {cancelDetailView}
+      header = {props.title}
+      className = "modal"
+      footerClass = "modal-footer"
+      contentClass = "modal-contents"
+      children = {
+        <div>
+       <h3>Nutrition Facts</h3>
+       </div>
+      }
+      footer = {
+        <Button inverse onClick={cancelDetailView}>
+        CANCEL
+      </Button>
+      }
+      ></Modal>
       <li className="place-item" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
         <Card className="place-item__content">
           <div className="place-item__image">
@@ -103,7 +127,9 @@ const VerticalItem = props => {
           <div className="place-item__info">
             <h4>{props.title}</h4>
             <div>
-              <PopUp />
+            <Button className = "details" details onClick={showDetailView}>
+                 details
+                </Button>
             </div>
             <p>{props.description}</p>
           </div>
@@ -120,6 +146,7 @@ const VerticalItem = props => {
                 </Button>
                )
                }
+              
                </div>
          
         </Card>

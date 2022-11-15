@@ -9,8 +9,13 @@ import './HorizontalItem.css';
 const HorizontalItem = props => {
   const auth = useContext(AuthContext);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
-
-
+  const [showDetail, setShowDetail] = useState(false);
+  const showDetailView = () => {
+    setShowDetail(true);
+  }
+  const cancelDetailView = () => {
+    setShowDetail(false);
+  }
  const showDeleteWarningHandler = () => {
    setShowConfirmModal(true);
  };
@@ -96,6 +101,25 @@ const HorizontalItem = props => {
           can't be undone thereafter.
         </p>
       </Modal>
+      {/* popup modal */}
+      <Modal
+      show = {showDetail}
+      onCancel = {cancelDetailView}
+      header = {props.title}
+      className = "modal"
+      footerClass = "modal-footer"
+      contentClass = "modal-contents"
+      children = {
+        <div>
+       <h3>Nutrition Facts</h3>
+       </div>
+      }
+      footer = {
+        <Button inverse onClick={cancelDetailView}>
+        CANCEL
+      </Button>
+      }
+      ></Modal>
       <li className="place-itemh" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} >
         <Card className="place-item__contenth">
           <div className = "image-titleh">
@@ -104,7 +128,9 @@ const HorizontalItem = props => {
           </div>
           <div className="place-item__infoh">
             <h4>{props.title}</h4>
-            <PopUp />
+            <Button className = "details" details onClick={showDetailView}>
+                 details
+                </Button>
             <p>{props.description}</p>
           </div>
           </div>
@@ -121,6 +147,7 @@ const HorizontalItem = props => {
                 </Button>
                )
                }
+         
                </div>
       
             </div>
