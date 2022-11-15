@@ -79,8 +79,9 @@ const VerticalItem = props => {
       contentClass = "modal-contents"
       children = {
         <div>
-       <h3>Nutrition Facts</h3>
-       </div>
+        <h3>Nutrition Facts</h3>
+        <p> {props.facts} </p>
+        </div>
       }
       footer = {
         <Button inverse onClick={cancelDetailView}>
