@@ -24,14 +24,14 @@ const VerticalItem = props => {
     console.log('DELETING...');
   };
 
-  const [isHovering, setIsHovering] = useState(false);
+  //const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseOver = () => {
-    setIsHovering(true);
+    //setIsHovering(true);
   };
 
   const handleMouseOut = () => {
-    setIsHovering(false);
+    //setIsHovering(false);
   };
 
   const PopUp = props => {

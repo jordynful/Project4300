@@ -29,14 +29,14 @@ const PictureItem = props => {
   const cancelDetailView = () => {
     setShowDetail(false);
   }
-  const [isHovering, setIsHovering] = useState(false);
+  //const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseOver = () => {
-    setIsHovering(true);
+    //setIsHovering(true);
   };
 
   const handleMouseOut = () => {
-    setIsHovering(false);
+    //setIsHovering(false);
   };
 
   const PopUp = props => {
