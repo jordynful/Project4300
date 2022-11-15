@@ -64,3 +64,15 @@
     height: 20rem;
   } 
 } */
+
+.modal {
+  height:490px;
+}
+
+.modal-footer {
+  bottom:0;
+}
+
+.modal-contents {
+  height:330px;
+}

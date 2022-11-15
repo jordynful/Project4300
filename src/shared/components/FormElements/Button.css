@@ -4,7 +4,7 @@
   border: 1px solid #b4d4ec;
   border-radius: 4px;
   background: #b4d4ec;
-  
+  font-size: 0.7rem;
   color: white;
   cursor: pointer;
   margin-right: 1rem;
@@ -36,6 +36,7 @@
 .button--danger {
   background: #830000;
   border-color: #830000;
+  font-size: 0.7rem;
 }
 
 .button--danger:hover,
@@ -59,4 +60,18 @@
 
 .button--big {
   font-size: 1.5rem;
+}
+
+.button--details {
+  background: #BEC7D8;
+  color: white;
+  font-size: 0.7rem;
+  margin-bottom: 1em;
+  margin-right: 1rem;
+}
+
+.button--details:hover,
+.button--details:active {
+  color: #cbbcb8;
+  background: #b4d4ec;
 }

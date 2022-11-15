@@ -104,6 +104,14 @@ const PictureItem = props => {
       show = {showDetail}
       onCancel = {cancelDetailView}
       header = {props.title}
+      className = "modal"
+      footerClass = "modal-footer"
+      contentClass = "modal-contents"
+      children = {
+        <div>
+       <h3>Nutrition Facts</h3>
+       </div>
+      }
       footer = {
         <Button inverse onClick={cancelDetailView}>
         CANCEL
@@ -117,7 +125,9 @@ const PictureItem = props => {
           </div>
           <div className="place-item__infop">
             <h4>{props.title}</h4>
-            <PopUp />
+            <Button className = "details" details onClick={showDetailView}>
+                 details
+                </Button>
             <p>{props.description}</p>
           </div>
           <div>
@@ -133,9 +143,7 @@ const PictureItem = props => {
                 </Button>
                )
                }
-                <Button danger onClick={showDetailView}>
-                 detail
-                </Button>
+            
                </div>
      
             </div>

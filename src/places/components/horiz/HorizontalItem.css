@@ -6,7 +6,7 @@
   .place-item__contenth {
     padding: 0;
     width: 40vw;
-    height:200px;
+    height:220px;
     display: flex;
     flex-direction: column;
   }
@@ -63,10 +63,23 @@
   .place-item__actionsh button,
   .place-item__actionsh a {
     margin: 0.5rem;
+    margin-top: 0;
+    bottom:5;
+    
   }
   
   .map-containerh {
     height: auto;
     width: 100%;
   }
-  
+  .modal {
+    height:490px;
+  }
+
+  .modal-footer {
+    bottom:0;
+  }
+
+  .modal-contents {
+    height:330px;
+  }
