@@ -27,6 +27,7 @@ const MenuList2 = props => {
           title={place.title}
           description={place.description}
           facts = {place.facts}
+          _id={place._id}
         />
       ))}
     </ul>

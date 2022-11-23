@@ -5,6 +5,7 @@ import Button from '../../../shared/components/FormElements/Button';
 import Modal from '../../../shared/components/UIElements/Modal';
 import { AuthContext } from '../../../shared/context/auth-context';
 import './VerticalItem.css';
+import axios from 'axios';
 
 const VerticalItem = props => {
   const auth = useContext(AuthContext);
@@ -28,6 +29,17 @@ const VerticalItem = props => {
   const confirmDeleteHandler = () => {
     setShowConfirmModal(false);
     console.log('DELETING...');
+    const pid = props._id;
+    axios({
+      url: '/api/vert/'+ pid,
+      method: 'delete',
+    })
+      .then(() => {
+        console.log('Data has been sent to the server');
+      })
+      .catch(() => {
+        console.log('Internal server error');
+      });
   };
 
   const [isHovering, setIsHovering] = useState(false);

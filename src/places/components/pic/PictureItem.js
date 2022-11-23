@@ -5,7 +5,7 @@ import Button from '../../../shared/components/FormElements/Button';
 import Modal from '../../../shared/components/UIElements/Modal';
 import { AuthContext } from '../../../shared/context/auth-context';
 import './PictureItem.css';
-
+import axios from 'axios';
 const PictureItem = props => {
   const auth = useContext(AuthContext);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -22,6 +22,17 @@ const PictureItem = props => {
   const confirmDeleteHandler = () => {
     setShowConfirmModal(false);
     console.log('DELETING...');
+    const pid = props._id;
+    axios({
+      url: '/api/pic/'+ pid,
+      method: 'delete',
+    })
+      .then(() => {
+        console.log('Data has been sent to the server');
+      })
+      .catch(() => {
+        console.log('Internal server error');
+      });
   };
   const showDetailView = () => {
     setShowDetail(true);

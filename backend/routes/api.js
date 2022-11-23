@@ -1,10 +1,11 @@
 const express = require('express');
 
 const router = express.Router();
-
+const { MongoClient, ObjectId } = require('mongodb');
 const Module = require('../models/module');
 const Vert = require('../models/vert')
 const Pic = require('../models/pic')
+const db = 'mongodb+srv://user123:testing123@cluster0.vhbtg4n.mongodb.net/final';
 // Routes for horizontal
 router.get('/', (req, res) => {
 
@@ -115,4 +116,45 @@ router.post('/pic/save', (req, res) => {
         });
     });
 });
+
+
+//delete functions
+router.delete('/horizontal/:id', (req, res) => {
+
+    Module.deleteOne({_id : ObjectId(req.params.id)})
+    .then((data) => {
+        console.log('Data: ', data);
+        res.json(data);
+    })
+    .catch((error) => {
+        console.log('error: ', daerrorta);
+    });
+
+  });
+
+  router.delete('/vert/:id', (req, res) => {
+
+    Vert.deleteOne({_id : ObjectId(req.params.id)})
+    .then((data) => {
+        console.log('Data: ', data);
+        res.json(data);
+    })
+    .catch((error) => {
+        console.log('error: ', daerrorta);
+    });
+
+  });
+
+  router.delete('/pic/:id', (req, res) => {
+
+    Pic.deleteOne({_id : ObjectId(req.params.id)})
+    .then((data) => {
+        console.log('Data: ', data);
+        res.json(data);
+    })
+    .catch((error) => {
+        console.log('error: ', daerrorta);
+    });
+
+  });
 module.exports = router;

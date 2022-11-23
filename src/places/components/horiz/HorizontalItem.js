@@ -5,7 +5,7 @@ import Button from '../../../shared/components/FormElements/Button';
 import Modal from '../../../shared/components/UIElements/Modal';
 import { AuthContext } from '../../../shared/context/auth-context';
 import './HorizontalItem.css';
-
+import axios from 'axios';
 const HorizontalItem = props => {
   const auth = useContext(AuthContext);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -18,6 +18,7 @@ const HorizontalItem = props => {
   }
  const showDeleteWarningHandler = () => {
    setShowConfirmModal(true);
+   console.log(props._id);
  };
 
   const cancelDeleteHandler = () => {
@@ -27,6 +28,18 @@ const HorizontalItem = props => {
   const confirmDeleteHandler = () => {
     setShowConfirmModal(false);
     console.log('DELETING...');
+    const pid = props._id;
+    axios({
+      url: '/api/horizontal/'+ pid,
+      method: 'delete',
+    })
+      .then(() => {
+        console.log('Data has been sent to the server');
+      })
+      .catch(() => {
+        console.log('Internal server error');
+      });
+
   };
 
   const [isHovering, setIsHovering] = useState(false);
