@@ -37,15 +37,15 @@ const VerticalItem = props => {
   };
 
   const handleMouseOut = () => {
-    setIsHovering(false);
+    //setIsHovering(false);
   };
-
+  /*
   const PopUp = props => {
     // create state `open` with default as false
     const [open, setOpen] = useState(false);
     return (
       <>
-        {/* click of button toggles `open` value therefore visibility */}
+        {/* click of button toggles `open` value therefore visibility }
         <button
           onClick={() => setOpen(!open)}
           type="button"
@@ -55,7 +55,7 @@ const VerticalItem = props => {
         >
          View Details
         </button>
-        {/* If open is true show your <div /> */}
+        {/* If open is true show your <div /> }
         {open && (
           <div
             className="modal fade"
@@ -71,7 +71,7 @@ const VerticalItem = props => {
       </>
     );
   };
-
+*/
   return (
     <React.Fragment>
       <Modal
