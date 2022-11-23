@@ -49,7 +49,7 @@
   
   .place-item__actionsh {
     padding: 1rem;
-
+    padding-top: 0;
   }
   
   .place-item__modal-contenth {
