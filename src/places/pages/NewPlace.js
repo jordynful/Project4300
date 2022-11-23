@@ -8,7 +8,7 @@ import {
 } from '../../shared/util/validators';
 import { useForm } from '../../shared/hooks/form-hook';
 import './PlaceForm.css';
-
+import axios from 'axios';
 const NewPlace = () => {
   const [formState, inputHandler] = useForm(
     {
@@ -20,10 +20,14 @@ const NewPlace = () => {
         value: '',
         isValid: false
       },
-      address: {
+      facts: {
         value: '',
         isValid: false
-      }
+      },
+      imageUrl: {
+        value: '',
+        isValid: false
+      },
     },
     false
   );
@@ -31,6 +35,27 @@ const NewPlace = () => {
   const placeSubmitHandler = event => {
     event.preventDefault();
     console.log(formState.inputs); // send this to the backend!
+    const payload = {
+      title: formState.inputs.title.value,
+      description: formState.inputs.description.value,
+      facts: formState.inputs.facts.value,
+      imageUrl: formState.inputs.imageUrl.value,
+    };
+    console.log(payload);
+
+    axios({
+      url: '/api/save',
+      method: 'POST',
+      data: payload
+    })
+      .then(() => {
+        console.log('Data has been sent to the server');
+        this.resetUserInputs();
+        this.getBlogPost();
+      })
+      .catch(() => {
+        console.log('Internal server error');
+      });;
   };
 
   return (
@@ -53,11 +78,17 @@ const NewPlace = () => {
         onInput={inputHandler}
       />
       <Input
-        id="address"
+        id="facts"
         element="input"
-        label="Address"
+        label="Facts"
         validators={[VALIDATOR_REQUIRE()]}
-        errorText="Please enter a valid address."
+        onInput={inputHandler}
+      />
+      <Input
+        id="imageUrl"
+        element="input"
+        label="imageUrl"
+        validators={[VALIDATOR_REQUIRE()]}
         onInput={inputHandler}
       />
       <Button type="submit" disabled={!formState.isValid}>
