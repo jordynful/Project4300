@@ -27,6 +27,11 @@ const NavLinks = props => {
           <button onClick={auth.logout}>Log Out</button>
         </li>
       )}
+        {auth.isLoggedIn && (
+        <li>
+          <NavLink to='/places/new'>Add to Menu</NavLink>
+        </li>
+      )}
     </ul>
   );
 };
