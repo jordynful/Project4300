@@ -73,6 +73,8 @@ const Menu = () => {
 //   const userId = useParams().userId;
 //   const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
 const [drinks, setDrinks] = useState(DRINKS);
+const [bake, setBake] = useState(BAKERY);
+const [bfast, setBfast] = useState(BREAKFAST);
 useEffect(() => {
   getBlogPost();
   console.log("retreiving data");
@@ -82,13 +84,36 @@ useEffect(() => {
           .then((response) => {
             const data = response.data;
             console.log(data);
+            setBfast(data);
+            // wah.setState({ posts: data });
+            console.log('Data has been received!!');
+          })
+          .catch(() => {
+            console.log('Error retrieving data!!!');
+          });
+          axios.get('/api/vert')
+          .then((response) => {
+            const data = response.data;
+            console.log(data);
+            setBake(data);
+            // wah.setState({ posts: data });
+            console.log('Data has been received!!');
+          })
+          .catch(() => {
+            console.log('Error retrieving data!!!');
+          });
+          axios.get('/api/pic')
+          .then((response) => {
+            const data = response.data;
+            console.log(data);
             setDrinks(data);
             // wah.setState({ posts: data });
             console.log('Data has been received!!');
           })
           .catch(() => {
-            alert('Error retrieving data!!!');
+            console.log('Error retrieving data!!!');
           });
+
       };
     
       const handleChange = ({ target }) => {
@@ -104,15 +129,15 @@ useEffect(() => {
     <>
         <div className= "cards">
         <h2 className="menu">bakery</h2>
-        <MenuList items={drinks} />
+        <MenuList items={bake} />
         </div>
         <div className="cards">
           <h2 className="menu">breakfast</h2>
-        <MenuList2 items={loadedPlaces} />
+        <MenuList2 items={bfast} />
         </div>
         <div className = "cards">
           <h2 className="menu">drinks</h2>
-        <MenuList3 items={bevs} />
+        <MenuList3 items={drinks} />
         </div>
     </>
   )

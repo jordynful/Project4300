@@ -9,7 +9,47 @@ import {
 import { useForm } from '../../shared/hooks/form-hook';
 import './PlaceForm.css';
 import axios from 'axios';
+
+import { useState } from 'react';
+import { useEffect } from 'react';
+
 const NewPlace = () => {
+  const [showMenu, setShowMenu] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(null);
+  const placeHolder = "Select..."
+const getDisplay = () => {
+  if (selectedValue) {
+     return selectedValue.label; 
+  }
+  return placeHolder;
+};
+useEffect(() => {
+  const handler = () => setShowMenu(false);
+  window.addEventListener("click", handler);
+  return () => {
+      window.removeEventListener("click", handler);
+  };
+});
+const onItemClick = (option) => {
+  setSelectedValue(option);
+}
+const isSelected = (option) => {
+  if (!selectedValue) {
+      return false;
+  }
+  return selectedValue.value === option.value;
+}
+const handleInputClick = (e) => {
+  e.stopPropagation();
+  setShowMenu(!showMenu);
+}
+const options = [
+  {value: "top", label: "top"},
+  {value: "middle", label: "middle"},
+  {value: "bottom", label: "bottom"}
+];
+const [type, setType] = useState(null);
+
   const [formState, inputHandler] = useForm(
     {
       title: {
@@ -42,9 +82,14 @@ const NewPlace = () => {
       imageUrl: formState.inputs.imageUrl.value,
     };
     console.log(payload);
+    console.log(selectedValue);
+    console.log(options[0]);
 
+    //series of if statements here 
+    if (selectedValue.value === 'top') {
+      console.log("made it to top");
     axios({
-      url: '/api/save',
+      url: '/api/vert/save',
       method: 'POST',
       data: payload
     })
@@ -55,8 +100,42 @@ const NewPlace = () => {
       })
       .catch(() => {
         console.log('Internal server error');
-      });;
-  };
+      });
+    }
+    else if (selectedValue.value === 'middle') {
+
+      axios({
+        url: '/api/save',
+        method: 'POST',
+        data: payload
+      })
+        .then(() => {
+          console.log('Data has been sent to the server');
+          this.resetUserInputs();
+          this.getBlogPost();
+        })
+        .catch(() => {
+          console.log('Internal server error');
+        });
+    }
+    
+    else {
+      axios({
+        url: '/api/pic/save',
+        method: 'POST',
+        data: payload
+      })
+        .then(() => {
+          console.log('Data has been sent to the server');
+          this.resetUserInputs();
+          this.getBlogPost();
+        })
+        .catch(() => {
+          console.log('Internal server error');
+        });
+    }
+
+  }; //submit handler
 
   return (
     <form className="place-form" onSubmit={placeSubmitHandler}>
@@ -91,6 +170,27 @@ const NewPlace = () => {
         validators={[VALIDATOR_REQUIRE()]}
         onInput={inputHandler}
       />
+      <div className='droppy'>
+        <h4>Where should this menu item be placed?</h4>
+        <div className="dropdown-container">
+      <div onClick = {handleInputClick} className="dropdown-input">
+      {getDisplay()}
+        {showMenu && (
+        <div className="dropdown-menu">
+        
+
+            {options.map((option) => (
+                <div
+                onClick ={() => onItemClick(option)} key ={option.value} 
+                className = {`dropdown-item ${isSelected(option) && "selected"}`}>
+                    {option.label}
+                </div>
+            ))}
+            </div>
+        )}
+      </div>
+    </div>
+      </div>
       <Button type="submit" disabled={!formState.isValid}>
         ADD ITEM
       </Button>
