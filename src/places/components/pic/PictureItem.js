@@ -29,15 +29,6 @@ const PictureItem = props => {
   const cancelDetailView = () => {
     setShowDetail(false);
   }
-  //const [isHovering, setIsHovering] = useState(false);
-
-  const handleMouseOver = () => {
-    //setIsHovering(true);
-  };
-
-  const handleMouseOut = () => {
-    //setIsHovering(false);
-  };
 
   
 
@@ -89,7 +80,7 @@ const PictureItem = props => {
       </Button>
       }
       ></Modal>
-      <li className="place-itemp" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+      <li className="place-itemp" >
         <Card className="place-item__contentp">
           <div className="place-item__imagep">
             <img src={props.image} alt={props.title} />

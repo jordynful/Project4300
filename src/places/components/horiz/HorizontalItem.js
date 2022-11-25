@@ -29,17 +29,6 @@ const HorizontalItem = props => {
     console.log('DELETING...');
   };
 
-  //const [isHovering, setIsHovering] = useState(false);
-
-  const handleMouseOver = () => {
-    //setIsHovering(true);
-  };
-
-  const handleMouseOut = () => {
-  
-   // setIsHovering(false);
-  };
-
   
   return (
     <React.Fragment >
@@ -90,7 +79,7 @@ const HorizontalItem = props => {
       </Button>
       }
       ></Modal>
-      <li className="place-itemh" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} >
+      <li className="place-itemh" >
         <Card className="place-item__contenth">
           <div className = "image-titleh">
           <div className="place-item__imageh">
