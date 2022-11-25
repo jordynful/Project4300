@@ -4,7 +4,9 @@ import './menu.css';
 import MenuList from '../components/vert/MenuList';
 import MenuList2 from '../components/horiz/MenuList2';
 import MenuList3 from '../components/pic/MenuList3';
-
+import { useEffect } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 const BREAKFAST = [
   {
     id: 'p1',
@@ -35,7 +37,7 @@ const BAKERY = [
       facts: 'Total Fat: 8g, Saturated Fat: 1g, Trans Fat: 0g, Cholesterol: 0mg,Sodium: 160g, Total Carbohydrate: 37g, Dietary Fiber: 4g, Total Sugars: 12g, Protein: 3g, Vitamin D: 2mcg, Calcium: 260mg, Iron: 8mg, Potassium: 240mg',
   },
   {
-    id: 'muffin',
+    id: 21,
     title: 'Assorted Muffins',
     description: 'Blueberry, Cranberry Orange, Chocolate Chip, Double Chocolate',
     imageUrl: 'https://cdn11.bigcommerce.com/s-pll9il/images/stencil/1280x1280/products/88/262/2R9A1868__70833.1592021428.jpg?c=2',
@@ -70,24 +72,72 @@ const DRINKS = [
 const Menu = () => {
 //   const userId = useParams().userId;
 //   const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
- 
+const [drinks, setDrinks] = useState(DRINKS);
+const [bake, setBake] = useState(BAKERY);
+const [bfast, setBfast] = useState(BREAKFAST);
+useEffect(() => {
+  getBlogPost();
+  console.log("retreiving data");
+}, []);
+     const getBlogPost = () => {
+        axios.get('/api')
+          .then((response) => {
+            const data = response.data;
+            console.log(data);
+            setBfast(data);
+            // wah.setState({ posts: data });
+            console.log('Data has been received!!');
+          })
+          .catch(() => {
+            console.log('Error retrieving data!!!');
+          });
+          axios.get('/api/vert')
+          .then((response) => {
+            const data = response.data;
+            console.log(data);
+            setBake(data);
+            // wah.setState({ posts: data });
+            console.log('Data has been received!!');
+          })
+          .catch(() => {
+            console.log('Error retrieving data!!!');
+          });
+          axios.get('/api/pic')
+          .then((response) => {
+            const data = response.data;
+            console.log(data);
+            setDrinks(data);
+            // wah.setState({ posts: data });
+            console.log('Data has been received!!');
+          })
+          .catch(() => {
+            console.log('Error retrieving data!!!');
+          });
+
+      };
+    
+      const handleChange = ({ target }) => {
+        const { name, value } = target;
+        this.setState({ [name]: value });
+      };
     const loadedPlaces = BREAKFAST;
 
     const idk = BAKERY;
     const bevs = DRINKS;
+
   return (
     <>
         <div className= "cards">
         <h2 className="menu">bakery</h2>
-        <MenuList items={idk} />
+        <MenuList items={bake} />
         </div>
         <div className="cards">
           <h2 className="menu">breakfast</h2>
-        <MenuList2 items={loadedPlaces} />
+        <MenuList2 items={bfast} />
         </div>
         <div className = "cards">
           <h2 className="menu">drinks</h2>
-        <MenuList3 items={bevs} />
+        <MenuList3 items={drinks} />
         </div>
     </>
   )
