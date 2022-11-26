@@ -98,16 +98,6 @@ const HorizontalItem = props => {
   };
 
 
-  const [isHovering, setIsHovering] = useState(false);
-
-  const handleMouseOver = () => {
-    setIsHovering(true);
-  };
-
-  const handleMouseOut = () => {
-  
-    setIsHovering(false);
-  };
   const placeUpdateSubmitHandler = event => {
     event.preventDefault();
     console.log(formState.inputs);
@@ -166,6 +156,7 @@ const HorizontalItem = props => {
     );
   };
 
+  
   return (
     <React.Fragment >
       <Modal

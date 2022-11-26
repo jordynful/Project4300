@@ -94,15 +94,16 @@ const PictureItem = props => {
   const cancelDetailView = () => {
     setShowDetail(false);
   }
-  const [isHovering, setIsHovering] = useState(false);
+  //const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseOver = () => {
-    setIsHovering(true);
+    //setIsHovering(true);
   };
 
   const handleMouseOut = () => {
-    setIsHovering(false);
+    //setIsHovering(false);
   };
+
 
   const PopUp = props => {
     // create state `open` with default as false
@@ -144,7 +145,6 @@ const PictureItem = props => {
       imageUrl: formState.inputs.imageUrl.value,
       facts: formState.inputs.facts.value,
     };
-
     axios({
       url: '/api/pic/put/' + props._id,
       method: 'put',
