@@ -4,13 +4,69 @@ import Card from '../../../shared/components/UIElements/Card';
 import Button from '../../../shared/components/FormElements/Button';
 import Modal from '../../../shared/components/UIElements/Modal';
 import { AuthContext } from '../../../shared/context/auth-context';
+import Input from '../../../shared/components/FormElements/Input';
+import {
+  VALIDATOR_REQUIRE,
+  VALIDATOR_MINLENGTH
+} from '../../../shared/util/validators';
+import { useForm } from '../../../shared/hooks/form-hook';
 import './VerticalItem.css';
+import axios from 'axios';
 
 const VerticalItem = props => {
   const auth = useContext(AuthContext);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [showDetail, setShowDetail] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
+  const [formState, inputHandler, setFormData] = useForm(
+    {
+      title: {
+        value: '',
+        isValid: false
+      },
+      description: {
+        value: '',
+        isValid: false
+      },
+      imageUrl: {
+        value: '',
+        isValid: false
+      },
+      facts: {
+        value: '',
+        isValid: false
+      },
+    },
+    false
+  );
+  const showEditView = () => {
 
+    setShowEdit(true);
+    setFormData(
+      {
+        title: {
+          value: props.title,
+          isValid: true
+        },
+        description: {
+          value: props.description,
+          isValid: true
+        },
+        imageUrl: {
+          value: props.imageUrl,
+          isValid: true
+        },
+        facts: {
+          value: props.facts,
+          isValid: true
+        },
+      },
+      true
+    );
+  }
+  const cancelEditView = () => {
+    setShowEdit(false);
+  }
   const showDetailView = () => {
     setShowDetail(true);
   }
@@ -28,6 +84,17 @@ const VerticalItem = props => {
   const confirmDeleteHandler = () => {
     setShowConfirmModal(false);
     console.log('DELETING...');
+    const pid = props._id;
+    axios({
+      url: '/api/vert/'+ pid,
+      method: 'delete',
+    })
+      .then(() => {
+        console.log('Data has been sent to the server');
+      })
+      .catch(() => {
+        console.log('Internal server error');
+      });
   };
 
   //const [isHovering, setIsHovering] = useState(false);
@@ -71,7 +138,31 @@ const VerticalItem = props => {
       </>
     );
   };
+  const placeUpdateSubmitHandler = event => {
+    event.preventDefault();
+    console.log(formState.inputs);
+    const payload = {
+      title: formState.inputs.title.value,
+      description: formState.inputs.description.value,
+      imageUrl: formState.inputs.imageUrl.value,
+      facts: formState.inputs.facts.value,
+    };
 
+    axios({
+      url: '/api/vert/put/' + props._id,
+      method: 'put',
+      data: payload
+    })
+      .then(() => {
+        console.log('Data has been sent to the server');
+        this.resetUserInputs();
+        this.getBlogPost();
+      })
+      .catch(() => {
+        console.log('Internal server error');
+      });
+      setShowEdit(false);
+  };
   return (
     <React.Fragment>
       <Modal
@@ -120,6 +211,71 @@ const VerticalItem = props => {
       </Button>
       }
       ></Modal>
+
+     {/* edit modal */}
+     <Modal
+      show = {showEdit}
+      onCancel = {cancelDetailView}
+      header = {props.title}
+      className = "modal"
+      footerClass = "modal-footer"
+      contentClass = "modal-contents"
+      children = {
+        <div>
+         <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
+      <Input
+        id="title"
+        element="input"
+        type="text"
+        label="Title"
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="Please enter a valid title."
+        onInput={inputHandler}
+        initialValue={formState.inputs.title.value}
+        initialValid={formState.inputs.title.isValid}
+      />
+      <Input
+        id="description"
+        element="textarea"
+        label="Description"
+        validators={[VALIDATOR_MINLENGTH(5)]}
+        errorText="Please enter a valid description (min. 5 characters)."
+        onInput={inputHandler}
+        initialValue={formState.inputs.description.value}
+        initialValid={formState.inputs.description.isValid}
+      />
+            <Input
+        id="imageUrl"
+        element="textarea"
+        label="ImageUrl"
+        validators={[VALIDATOR_MINLENGTH(5)]}
+        errorText="Please enter a valid url"
+        onInput={inputHandler}
+        initialValue={formState.inputs.imageUrl.value}
+        initialValid={formState.inputs.imageUrl.isValid}
+      />
+            <Input
+        id="facts"
+        element="textarea"
+        label="Facts"
+        validators={[VALIDATOR_MINLENGTH(5)]}
+        errorText="Please enter valid facts (min. 5 characters)."
+        onInput={inputHandler}
+        initialValue={formState.inputs.facts.value}
+        initialValid={formState.inputs.facts.isValid}
+      />
+      <Button type="submit" >
+        UPDATE ITEM
+      </Button>
+    </form>
+       </div>
+      }
+      footer = {
+        <Button inverse onClick={cancelEditView}>
+        CANCEL
+      </Button>
+      }
+      ></Modal>
       <li className="place-item" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
         <Card className="place-item__content">
           <div className="place-item__image">
@@ -138,7 +294,7 @@ const VerticalItem = props => {
          
             <div className="place-item__actions">
              {auth.isLoggedIn && (
-                <Button to={`/places/vert/${props.id}`}>EDIT</Button>
+                <Button details onClick = {showEditView}>EDIT</Button>
                 )}
 
               {auth.isLoggedIn && (

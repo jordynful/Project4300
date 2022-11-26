@@ -40,14 +40,3 @@ app.use('/api', routes);
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
 
-
-const data = {
-  id: '21',
-  title: "Muffins",
-  description: "Muffins and such",
-  imageUrl: "https://cdn11.bigcommerce.com/s-pll9il/images/stencil/1280x1280/products/88/262/2R9A1868__70833.1592021428.jpg?c=2",
-  facts: "Total Fat: 8g, Saturated Fat: 1g, Trans Fat: 0g, Cholesterol: 0mg,Sodium: 160g, Total Carbohydrate: 37g, Dietary Fiber: 4g, Total Sugars: 12g, Protein: 3g, Vitamin D: 2mcg, Calcium: 260mg, Iron: 8mg, Potassium: 240mg"
-}
-
-newModule = new Module(data);
-newModule.save();
