@@ -97,15 +97,6 @@ const VerticalItem = props => {
       });
   };
 
-  //const [isHovering, setIsHovering] = useState(false);
-
-  const handleMouseOver = () => {
-    //setIsHovering(true);
-  };
-
-  const handleMouseOut = () => {
-    setIsHovering(false);
-  };
 
   const PopUp = props => {
     // create state `open` with default as false
@@ -276,7 +267,7 @@ const VerticalItem = props => {
       </Button>
       }
       ></Modal>
-      <li className="place-item" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+      <li className="place-item" >
         <Card className="place-item__content">
           <div className="place-item__image">
             <img src={props.image} alt={props.title} />
