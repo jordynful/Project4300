@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 
-
 // Schema
 const Schema = mongoose.Schema;
 const PicSchema = new Schema({
-    id: String,
     title: String,
     description: String,
     imageUrl: String,

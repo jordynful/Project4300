@@ -120,10 +120,7 @@ useEffect(() => {
         const { name, value } = target;
         this.setState({ [name]: value });
       };
-    const loadedPlaces = BREAKFAST;
 
-    const idk = BAKERY;
-    const bevs = DRINKS;
 
   return (
     <>

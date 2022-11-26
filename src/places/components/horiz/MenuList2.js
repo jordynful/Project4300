@@ -21,7 +21,7 @@ const MenuList2 = props => {
     <ul className="place-list horizontal">
       {props.items.map(place => (
         <HorizontalItem
-          key={place.id}
+          key={place._id}
           id={place.id}
           image={place.imageUrl}
           title={place.title}
