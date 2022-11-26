@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
 const { RedIntegerFormat } = require('three');
 
-
 // Schema
 const Schema = mongoose.Schema;
 const ModuleSchema = new Schema({
-    id: String,
     title: String,
     description: String,
     imageUrl: String,

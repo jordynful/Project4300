@@ -75,6 +75,9 @@
   .modal {
     height:490px;
   }
+  .second {
+    height:700px;
+  }
 
   .modal-footer {
     bottom:0;
