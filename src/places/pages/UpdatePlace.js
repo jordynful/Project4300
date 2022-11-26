@@ -82,7 +82,7 @@ const UpdatePlace = () => {
   useEffect(() => {
 
     getBlogPost();
-    console.log(placeId);
+     console.log(placeId);
     console.log(identifiedPlace.title);
     if (identifiedPlace) {
       console.log("what is happening");
