@@ -103,7 +103,7 @@ const VerticalItem = props => {
     const [open, setOpen] = useState(false);
     return (
       <>
-        {/* click of button toggles `open` value therefore visibility }
+        {/* click of button toggles `open` value therefore visibility */}
         <button
           onClick={() => setOpen(!open)}
           type="button"
@@ -113,7 +113,7 @@ const VerticalItem = props => {
         >
          View Details
         </button>
-        {/* If open is true show your <div /> }
+        {/* If open is true show your <div /> */}
         {open && (
           <div
             className="modal fade"
