@@ -4,11 +4,22 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
 const Module = require('./models/module');
+const bodyParser = require("body-parser")
+const jwt = require("jsonwebtoken")
+const bcrypt = require("bcrypt")
+const User = require("./models/user")
+const { application } = require('express')
 
 const app = express();
 const PORT = process.env.PORT || 8000; // Step 1
 
 const routes = require('./routes/api');
+const adminRoute = require('./routes/admin-routes');
+
+const dbURI = "mongodb+srv://user123:testing123@cluster0.vhbtg4n.mongodb.net/final"
+
+const urlencodedParser = bodyParser.urlencoded({extended: false})
+app.use(bodyParser.json(), urlencodedParser)
 
 // Step 2
 mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://user123:testing123@cluster0.vhbtg4n.mongodb.net/final', {
@@ -34,9 +45,7 @@ if (process.env.NODE_ENV === 'production') {
 // HTTP request logger
 app.use(morgan('tiny'));
 app.use('/api', routes);
-
-
-
+app.use('/admin', adminRoute);
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
 

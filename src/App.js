@@ -4,9 +4,9 @@ import {
   Route,
   Redirect,
   Switch,
+  BrowserRouter,
  
 } from 'react-router-dom';
-
 import Home from './places/pages/Home';
 import NewPlace from './places/pages/NewPlace';
 import Menu from './places/pages/Menu';
@@ -14,16 +14,20 @@ import UpdatePlace from './places/pages/UpdatePlace';
 import Auth from './user/pages/Auth';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import { AuthContext } from './shared/context/auth-context';
+import { Login } from './user/pages/login'
+import { Register } from './user/pages/register'
+
+
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const login = useCallback(() => {
-    setIsLoggedIn(true);
-  }, []);
+  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const login = Login;
 
   const logout = useCallback(() => {
     setIsLoggedIn(false);
   }, []);
+  
 
   let routes;
 
