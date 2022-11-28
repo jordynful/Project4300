@@ -138,6 +138,7 @@ const [type, setType] = useState(null);
   }; //submit handler
 
   return (
+    <>
     <form className="place-form" onSubmit={placeSubmitHandler}>
       <Input
         id="title"
@@ -195,6 +196,13 @@ const [type, setType] = useState(null);
         ADD ITEM
       </Button>
     </form>
+    <div className = "about-footer">
+    <h2 className = "titlePage2">Talk To Us</h2>
+    <h5 className = "number">(404) 259-1368</h5>
+    <h5 className = "number">jordynfulbright@gmail.com</h5>
+  </div>
+    </>
+    
   );
 };
 
