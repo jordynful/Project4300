@@ -83,7 +83,7 @@ const Auth = () => {
     <Card className="authentication">
       <h2 className= "login">Login Required</h2>
       <hr />
-      <form onSubmit={handleLogin}>
+      <form onSubmit={authSubmitHandler}>
         {!isLoginMode && (
           <Input
             element="input"
