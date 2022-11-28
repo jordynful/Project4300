@@ -8,3 +8,7 @@ After copying repo and downloading packages:
 1) open 2 terminals
 2) on one terminal run `npm start` from project directory Project4300 to start up front end
 3) on the second terminal run `node backend/server.js` from project directory Project4300 to start up backend
+
+Citations:
+- https://www.youtube.com/watch?v=OuCrHynro0w (accimeesterlin) -- used for backend API
+- 
