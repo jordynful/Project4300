@@ -14,9 +14,10 @@ import UpdatePlace from './places/pages/UpdatePlace';
 import Auth from './user/pages/Auth';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import { AuthContext } from './shared/context/auth-context';
+import { Login } from '../src/user/pages/login';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const login = useCallback(() => {
     setIsLoggedIn(true);
   }, []);
@@ -54,7 +55,7 @@ const App = () => {
         <Route path="/places" exact>
           <Menu />
         </Route>
-        <Route path="/auth">
+        <Route path="/auth" exact>
           <Auth />
         </Route>
         <Redirect to="/auth" />

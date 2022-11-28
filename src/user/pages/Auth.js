@@ -11,6 +11,7 @@ import {
 import { useForm } from '../../shared/hooks/form-hook';
 import { AuthContext } from '../../shared/context/auth-context';
 import './Auth.css';
+import axios from 'axios';
 
 const Auth = () => {
   const auth = useContext(AuthContext);
@@ -55,16 +56,34 @@ const Auth = () => {
   };
 
   const authSubmitHandler = event => {
+    const payload = {
+      username: formState.inputs.username.value,
+      email: formState.inputs.email.value,
+    };
     event.preventDefault();
     console.log(formState.inputs);
     auth.login();
+    axios({
+      url: '/auth-routes/login',
+      method: 'POST',
+      data: payload
+    })
+      .then(() => {
+        console.log('auth-login request made');
+        this.resetUserInputs();
+        this.getBlogPost();
+      })
+      .catch(() => {
+        console.log('Internal server error');
+      });
   };
+
 
   return (
     <Card className="authentication">
       <h2 className= "login">Login Required</h2>
       <hr />
-      <form onSubmit={authSubmitHandler}>
+      <form onSubmit={handleLogin}>
         {!isLoginMode && (
           <Input
             element="input"
