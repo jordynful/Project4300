@@ -44,9 +44,9 @@ const handleInputClick = (e) => {
   setShowMenu(!showMenu);
 }
 const options = [
-  {value: "top", label: "top"},
-  {value: "middle", label: "middle"},
-  {value: "bottom", label: "bottom"}
+  {value: "top", label: "Bakery"},
+  {value: "middle", label: "Breakfast"},
+  {value: "bottom", label: "Drinks"}
 ];
 const [type, setType] = useState(null);
 

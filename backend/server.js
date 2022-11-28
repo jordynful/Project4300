@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
 const Module = require('./models/module');
+const Pic = require('./models/pic');
 
 const app = express();
 const PORT = process.env.PORT || 8000; // Step 1
@@ -34,7 +35,6 @@ if (process.env.NODE_ENV === 'production') {
 // HTTP request logger
 app.use(morgan('tiny'));
 app.use('/api', routes);
-
 
 
 
