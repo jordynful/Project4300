@@ -2,8 +2,9 @@ import React, { useState, useCallback } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect 
+  Navigate,
+  Routes,
+ 
 } from 'react-router-dom';
 
 import Home from './places/pages/Home';
@@ -28,7 +29,7 @@ const App = () => {
 
   if (isLoggedIn) {
     routes = (
-      <Switch>
+      <Routes>
         <Route path="/" exact>
           <Home />
         </Route>
@@ -41,12 +42,12 @@ const App = () => {
         <Route path="/places/:placeId">
           <UpdatePlace />
         </Route>
-        <Redirect to="/" />
-      </Switch>
+        <Navigate to="/" />
+      </Routes>
     );
   } else {
     routes = (
-      <Switch>
+      <Routes>
         <Route path="/" exact>
           <Home />
         </Route>
@@ -56,8 +57,8 @@ const App = () => {
         <Route path="/auth">
           <Auth />
         </Route>
-        <Redirect to="/auth" />
-      </Switch>
+        <Navigate to="/auth" />
+      </Routes>
     );
   }
 

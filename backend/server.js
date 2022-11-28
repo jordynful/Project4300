@@ -39,4 +39,3 @@ app.use('/api', routes);
 
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
-
