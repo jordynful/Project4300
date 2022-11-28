@@ -58,6 +58,12 @@ router.put('/update:pid', (req, res) => {
         });
 });
 
+router.get('/menuItem/:menuItemId', (req, res) => {
+    // Pretend this is code for getting the menuitem from the db
+    console.log("Looking for id " + req.params.menuItemId);
+    res.send("Looking for id " + req.params.menuItemId);
+})
+
 router.get('/vert', (req, res) => {
 
     Vert.find({  })
