@@ -1,5 +1,5 @@
 const express = require('express');
-
+const { verifySignUp } = require("../middlewares");
 const router = express.Router();
 const { MongoClient, ObjectId } = require('mongodb');
 const Module = require('../models/module');
