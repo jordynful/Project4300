@@ -136,6 +136,11 @@ useEffect(() => {
           <h2 className="menu">drinks</h2>
         <MenuList3 items={drinks} />
         </div>
+        <div className = "about-footer">
+    <h2 className = "titlePage2">Talk To Us</h2>
+    <h5 className = "number">(404) 259-1368</h5>
+    <h5 className = "number">jordynfulbright@gmail.com</h5>
+  </div>
     </>
   )
 };
