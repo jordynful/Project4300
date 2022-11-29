@@ -16,7 +16,7 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 const Auth = () => {
   const auth = useContext(AuthContext);
-  const [isLoginMode, setIsLoginMode] = useState(true);
+  const [isLoginMode, setIsLoginMode] = useState(false);
 const history = useHistory();
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -99,7 +99,8 @@ const history = useHistory();
 
   };
   useEffect(()=> {
- 
+  
+ console.log(localStorage.getItem("token"));
     axios.get('/api/auth/token', {
   headers: {
     'x-access-token': localStorage.getItem("token")
