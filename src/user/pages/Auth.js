@@ -11,14 +11,16 @@ import {
 import { useForm } from '../../shared/hooks/form-hook';
 import { AuthContext } from '../../shared/context/auth-context';
 import './Auth.css';
-
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 const Auth = () => {
   const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
-
+const history = useHistory();
   const [formState, inputHandler, setFormData] = useForm(
     {
-      email: {
+      username: {
         value: '',
         isValid: false
       },
@@ -35,15 +37,15 @@ const Auth = () => {
       setFormData(
         {
           ...formState.inputs,
-          name: undefined
+          email: undefined
         },
-        formState.inputs.email.isValid && formState.inputs.password.isValid
+        formState.inputs.username.isValid && formState.inputs.password.isValid
       );
     } else {
       setFormData(
         {
           ...formState.inputs,
-          name: {
+          email: {
             value: '',
             isValid: false
           }
@@ -57,34 +59,87 @@ const Auth = () => {
   const authSubmitHandler = event => {
     event.preventDefault();
     console.log(formState.inputs);
-    auth.login();
-  };
 
+    if (!isLoginMode) {
+     
+      const payload = {
+        username: formState.inputs.username.value,
+        password: formState.inputs.password.value,
+        email: formState.inputs.email.value,
+      };
+      axios.post('/api/auth/signup', payload)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+       
+        
+    }
+    else {
+      const payload = {
+        username: formState.inputs.username.value,
+        password: formState.inputs.password.value,
+        // email: formState.inputs.email.value,
+      };
+      axios.post('/api/auth/signin', payload)
+      .then(function (response) {
+        console.log(response);
+        auth.login();
+        console.log("PLS WORK")
+        
+        localStorage.setItem("token", response.data.accessToken);
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
+
+  };
+  useEffect(()=> {
+ 
+    axios.get('/api/auth/token', {
+  headers: {
+    'x-access-token': localStorage.getItem("token")
+  }
+})
+.then(function (response) {
+  console.log(response);
+  if (response.data === "Authenticated") {
+    history.push("/")
+  }
+})
+.catch(function (error) {
+  console.log(error);
+});
+ },[])
   return (
     <Card className="authentication">
       <h2 className= "login">Login Required</h2>
       <hr />
       <form onSubmit={authSubmitHandler}>
         {!isLoginMode && (
-          <Input
+        <Input
+        element="input"
+        id="email"
+        type="email"
+        label="E-Mail"
+        validators={[VALIDATOR_EMAIL()]}
+        errorText="Please enter a valid email address."
+        onInput={inputHandler}
+      />
+        )}
+                  <Input
             element="input"
-            id="name"
+            id="username"
             type="text"
-            label="Your Name"
+            label="Your UserName"
             validators={[VALIDATOR_REQUIRE()]}
             errorText="Please enter a name."
             onInput={inputHandler}
           />
-        )}
-        <Input
-          element="input"
-          id="email"
-          type="email"
-          label="E-Mail"
-          validators={[VALIDATOR_EMAIL()]}
-          errorText="Please enter a valid email address."
-          onInput={inputHandler}
-        />
         <Input
           element="input"
           id="password"
