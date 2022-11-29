@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
-
+import { Redirect } from 'react-router-dom'
+import { useEffect } from 'react'
 import Card from '../../shared/components/UIElements/Card';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
@@ -9,14 +10,11 @@ import {
   VALIDATOR_REQUIRE
 } from '../../shared/util/validators';
 import { useForm } from '../../shared/hooks/form-hook';
-import { AuthContext } from '../../shared/context/auth-context';
 import './Auth.css';
 import axios from 'axios';
 
 const Auth = () => {
-  const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
-
   const [formState, inputHandler, setFormData] = useForm(
     {
       email: {
@@ -30,7 +28,7 @@ const Auth = () => {
     },
     false
   );
-
+  
   const switchModeHandler = () => {
     if (!isLoginMode) {
       setFormData(
@@ -54,36 +52,56 @@ const Auth = () => {
     }
     setIsLoginMode(prevMode => !prevMode);
   };
+  
 
-  const authSubmitHandler = event => {
+  function handleLogin(e) {
+    e.preventDefault()
+    console.log("hello");
     const payload = {
       username: formState.inputs.username.value,
       email: formState.inputs.email.value,
     };
-    event.preventDefault();
-    console.log(formState.inputs);
-    auth.login();
     axios({
-      url: '/auth-routes/login',
+      url: '/auth/login',
       method: 'POST',
       data: payload
     })
-      .then(() => {
-        console.log('auth-login request made');
-        this.resetUserInputs();
-        this.getBlogPost();
-      })
-      .catch(() => {
-        console.log('Internal server error');
-      });
+    .then(res => res.json())
+    .then(data => {
+        localStorage.setItem("token", data.token)
+    })
+      
   };
 
+  async function handleRegister(e) {
+    e.preventDefault()
+
+    const payload = {
+      username: formState.inputs.username.value,
+      email: formState.inputs.email.value,
+      password: formState.inputs.password.value,
+    };
+
+    axios({
+      url: '/auth/register',
+      method: 'POST',
+      data: payload
+    })
+    .then(res => res.json())
+    .then(data => console.log(data));
+};
+
+  useEffect(() => {
+    axios.get('/auth/isUserAuth').then(res => res.json())
+    .then(console.log('hello23'))
+  
+  }, [])
 
   return (
     <Card className="authentication">
       <h2 className= "login">Login Required</h2>
       <hr />
-      <form onSubmit={authSubmitHandler}>
+      <form onSubmit={isLoginMode ? handleLogin : handleRegister}>
         {!isLoginMode && (
           <Input
             element="input"

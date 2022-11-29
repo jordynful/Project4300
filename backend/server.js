@@ -41,13 +41,3 @@ app.use('/api', routes);
 app.use('/auth-routes', adminRoutes);
 
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));
-
-const data = {
-    email: 'annieneal05@gmail.com',
-    password: 'test1234',
-    username: 'annie'
-}
-
-newUser = new User(data)
-newUser.save();
-

@@ -32,7 +32,7 @@ router.post("/login", (req, res) => {
     User.findOne({email: userLoggingIn.email}).then(dbUser => {
         if(!dbUser) {
             return res.json({
-                message: "Invalid username or password"
+                message: "Invalid email or password"
             })
         }
         bcrypt.compare(userLoggingIn.password, dbUser.password).then(isCorrect => {
@@ -84,6 +84,10 @@ function verifyJWT(req, res, next) {
 
 router.get("/getUsername", verifyJWT, (req, res) => {
     res.json({isLoggedIn: true, username: req.user.username})
+})
+
+router.get("/isUserAuth", verifyJWT, (req, res) => {
+    res.json({isLoggedIn: true, user: req.user})
 })
 
 module.exports = router;
