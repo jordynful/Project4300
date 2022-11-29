@@ -109,7 +109,8 @@ const history = useHistory();
 .then(function (response) {
   console.log(response);
   if (response.data === "Authenticated") {
-    history.push("/")
+    history.push("/");
+    auth.login();
   }
 })
 .catch(function (error) {
