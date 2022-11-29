@@ -76,7 +76,7 @@ function verifyJWT(req, res, next) {
             req.user.id = decoded.idreq.user.username = decoded.usernamenext()
         })
     } else {
-        res,json({message: "Incorrect token given", isLoggedIn: false})
+        res.json({message: "Incorrect token given", isLoggedIn: false})
     }
 }
 

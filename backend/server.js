@@ -45,6 +45,6 @@ const data = {
     username: 'annie'
 }
 
-newUser = new User(data)
-newUser.save();
+//newUser = new User(data)
+//newUser.save();
 
