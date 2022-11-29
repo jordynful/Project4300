@@ -58,8 +58,8 @@ const Auth = () => {
     e.preventDefault()
     console.log("hello");
     const payload = {
-      username: formState.inputs.username.value,
       email: formState.inputs.email.value,
+      password: formState.inputs.password.value,
     };
     axios({
       url: '/auth/login',
