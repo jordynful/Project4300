@@ -13,3 +13,4 @@ Citations:
 - https://www.youtube.com/watch?v=OuCrHynro0w (accimeesterlin) -- used for backend API
 - https://medium.com/tinyso/how-to-create-a-dropdown-select-component-in-react-bf85df53e206 -- used for dropdown component
 - Sample react project from ELC used for template
+- https://www.bezkoder.com/node-js-mongodb-auth-jwt/ -- used for implemeting user auth and jwt tokens
