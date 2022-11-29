@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
         res.json({message: "This username or email is already taken"})
     } else {
         newUser.password = await bcrypt.hash(req.body.password, 10)
-        const dbUser = new userModel ({
+        const dbUser = new User ({
             username: newUser.username.toLowerCase(),
             email: newUser.email.toLowerCase(),
             password: newUser.password
@@ -73,10 +73,12 @@ function verifyJWT(req, res, next) {
                 message: "Failed To Authenticate"
             })
             req.user = {};
-            req.user.id = decoded.idreq.user.username = decoded.usernamenext()
+            req.user.email = decoded.email
+            req.user.username = decoded.username
+            next()
         })
     } else {
-        res,json({message: "Incorrect token given", isLoggedIn: false})
+        res.json({message: "Incorrect token given", isLoggedIn: false})
     }
 }
 

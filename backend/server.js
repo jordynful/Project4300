@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const path = require('path');
 const Module = require('./models/module');
 const User = require('./models/user');
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 8000; // Step 1
@@ -21,6 +22,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://user123:testing123@cl
 mongoose.connection.on('connected', () => {
     console.log('Mongoose is connected!!!!');
 });
+
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Data parsing
 app.use(express.json());
