@@ -1,33 +1,45 @@
-import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
-
-import { AuthContext } from '../../context/auth-context';
+import React, { useState } from 'react';
+import { NavLink, Redirect } from 'react-router-dom';
+import { useEffect } from 'react';
 import './NavLinks.css';
 
-const NavLinks = props => {
-  const auth = useContext(AuthContext);
+function NavLinks() {
+  const [username, setUsername] = useState(null)
+
+  async function logout() {
+    localStorage.removeItem("token")
+    Redirect("auth-routes/login")
+  }
+  useEffect(() => {
+    fetch("auth-routes/isUserAuth", {
+        headers: {
+            "x-access-token": localStorage.getItem("token")
+        }
+    })
+    .then(res => res.json())
+    .then(data => data.isLoggedIn ? setUsername(data.username): null)
+  }, [])
 
   return (
     <ul className="nav-links">
       <li>
         <NavLink to="/places" exact> Menu</NavLink>
       </li>
-      
         <li>
           <NavLink  className = "navvy"to="/" exact>About Us</NavLink>
         </li>
       
-      {!auth.isLoggedIn && (
+      {!username && (
         <li>
-          <NavLink  className = "navvy"to="/auth">Log In</NavLink>
+          <NavLink  className = "navvy"to="/auth/login">Log In</NavLink>
         </li>
       )}
-      {auth.isLoggedIn && (
+      {username && (
         <li>
-          <button onClick={auth.logout}>Log Out</button>
+          <button onClick={logout}>Log Out</button>
         </li>
       )}
-        {auth.isLoggedIn && (
+        {username && (
         <li>
           <NavLink to='/places/new'>Add to Menu</NavLink>
         </li>
