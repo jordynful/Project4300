@@ -117,6 +117,7 @@ const [type, setType] = useState(null);
         .catch(() => {
           console.log('Internal server error');
         });
+        
     }
     
     else {
@@ -134,7 +135,7 @@ const [type, setType] = useState(null);
           console.log('Internal server error');
         });
     }
-
+    
   }; //submit handler
 
   return (
